@@ -1,0 +1,18 @@
+{
+    "name": "oluwademilade/piggy",
+    "description": "A PHP application for tracking expenses",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Demilade362",
+            "email": "ademolademilade362@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
