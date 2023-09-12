@@ -1,7 +1,12 @@
 <?php
 
-use App\Controllers\HomeController;
+namespace App\Routes;
 
+use App\Controllers\{
+    HomeController,
+    AboutController
+};
+use Framework\App;
 
 
 /**
@@ -10,5 +15,8 @@ use App\Controllers\HomeController;
  * You must call the $app instance 
  */
 
-$app->get('/', [HomeController::class, 'index']);
-$app->get('/about', [HomeController::class, 'show']);
+function registerRoutes(App $app)
+{
+    $app->get('/', [HomeController::class, 'index']);
+    $app->get('/about', [AboutController::class, 'index']);
+}

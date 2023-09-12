@@ -7,7 +7,7 @@ namespace App\Controllers;
 use App\config\Paths;
 use Framework\TemplateEngine;
 
-class HomeController
+class AboutController
 {
     private TemplateEngine $view;
 
@@ -16,9 +16,9 @@ class HomeController
         $this->view = new TemplateEngine(Paths::VIEW);
     }
 
-    public function index(): mixed
+    public function index()
     {
-        $title = "Homepage";
-        return $this->view->render("index.php", compact("title"));
+        $title = "About Page";
+        return $this->view->render("about.php", compact("title"));
     }
 }

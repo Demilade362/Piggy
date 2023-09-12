@@ -17,12 +17,17 @@ class TemplateEngine
 
         ob_start();
 
-        include "{$this->basePath}/{$template}";
+        include $this->resolve($template);
 
         $output = ob_get_contents();
 
         ob_get_clean();
 
         echo $output;
+    }
+
+    public function resolve($template)
+    {
+        return "{$this->basePath}/{$template}";
     }
 }
