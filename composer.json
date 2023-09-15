@@ -15,7 +15,8 @@
             "App\\": "src/App"
         },
         "files": [
-            "src/App/Routes/web.php"
+            "src/App/Routes/web.php",
+            "src/App/Middlewares/Middleware.php"
         ]
     }
 }
