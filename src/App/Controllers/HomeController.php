@@ -17,7 +17,6 @@ class HomeController
 
     public function index(): mixed
     {
-        $title = "Homepage";
-        return $this->view->render("index.php", compact("title"));
+        return $this->view->render("index.php");
     }
 }

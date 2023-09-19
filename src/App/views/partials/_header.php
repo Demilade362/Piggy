@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/main.css" />
 </head>
 
-<body class="bg-indigo-50 font-['Outfit']">
+<body class=" bg-indigo-50 font-['Outfit']">
     <!-- Start Header -->
     <header class="bg-indigo-900">
         <nav class="mx-auto flex container items-center justify-between py-4" aria-label="Global">

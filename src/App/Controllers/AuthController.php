@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\config\Paths;
 use Framework\TemplateEngine;
 
-class AboutController
+class AuthController
 {
-
     public function __construct(
         private TemplateEngine $view
     ) {
     }
 
-    public function index()
+    public function registerPage()
     {
-        $title = "About";
-        return $this->view->render("about.php", compact('title'));
+        $title = "Register";
+        $this->view->render('register.php', compact('title'));
     }
 }

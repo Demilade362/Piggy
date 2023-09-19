@@ -4,7 +4,8 @@ namespace App\Routes;
 
 use App\Controllers\{
     HomeController,
-    AboutController
+    AboutController,
+    AuthController
 };
 use Framework\App;
 
@@ -19,4 +20,5 @@ function registerRoutes(App $app)
 {
     $app->get('/', [HomeController::class, 'index']);
     $app->get('/about', [AboutController::class, 'index']);
+    $app->get("/register", [AuthController::class, 'registerPage']);
 }
