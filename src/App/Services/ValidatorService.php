@@ -5,18 +5,32 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Contracts\RuleInterface;
+use Framework\Rules\{
+    RequiredRule
+};
+use Framework\Validator;
 
 class ValidatorService
 {
-    private array $rules = [];
+    private Validator $validator;
 
-    public function add(string $alias, RuleInterface $rule)
+    public function __construct()
     {
-        $this->rules[$alias] = $rule;
+        $this->validator = new Validator;
+
+        $this->validator->add('required', new RequiredRule);
     }
 
-    public function validate($formData)
+    public function validateRegister(array $formData)
     {
-        dd($formData);
+        $this->validator->validate($formData, [
+            'email' => ['required'],
+            'age' => ['required'],
+            'country' => ['required'],
+            'socialMediaURL' => ['required'],
+            'password' => ['required'],
+            'confirmPassword' => ['required'],
+            'tos' => ['required']
+        ]);
     }
 }
