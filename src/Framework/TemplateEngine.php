@@ -23,7 +23,7 @@ class TemplateEngine
 
         $output = ob_get_contents();
 
-        ob_get_clean();
+        ob_clean();
 
         echo $output;
     }

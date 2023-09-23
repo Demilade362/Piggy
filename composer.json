@@ -18,5 +18,8 @@
             "src/App/Routes/web.php",
             "src/App/config/Middleware.php"
         ]
+    },
+    "scripts": {
+        "piggy-migrate" : "php migrate.php"
     }
 }

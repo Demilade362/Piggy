@@ -10,6 +10,7 @@ use Framework\Exceptions\ValidationException;
 class Validator
 {
     private array $rules = [];
+    private array $errors = [];
 
     public function add(string $alias, RuleInterface $rule)
     {
@@ -19,24 +20,26 @@ class Validator
     public function validate(array $formData, array $fields)
     {
         foreach ($fields as $fieldName => $rules) {
-            $errors = [];
             foreach ($rules as $rule) {
+                $ruleParams = [];
+
+                if (str_contains($rule, ":")) {
+                    [$rule, $ruleParams] = explode(":", $rule);
+                    $ruleParams = explode(',', $ruleParams);
+                }
+
                 $ruleValidator = $this->rules[$rule];
 
-                if ($ruleValidator->validate($formData, $fieldName, [])) {
+                if ($ruleValidator->validate($formData, $fieldName, $ruleParams)) {
                     continue;
                 }
 
-                $errors[$fieldName][] = $ruleValidator->getMessage($formData, $fieldName, []);
-
-                if (count($errors) > 0) {
-
-                    throw new ValidationException();
-                    // echo "<pre>";
-                    // print_r($errors);
-                    // echo "</pre>";
-                }
+                $this->errors[$fieldName][] = $ruleValidator->getMessage($formData, $fieldName, $ruleParams);
             }
+        }
+
+        if (count($this->errors)) {
+            throw new ValidationException($this->errors);
         }
     }
 }
