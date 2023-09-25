@@ -19,6 +19,14 @@ class SessionMiddleware implements MiddlewareInterface
         if (headers_sent($filename, $line)) {
             throw new SessionException("Sessions already sent. Consider Enabling output buffering. Data outputted from {$filename} - Line: {$line}");
         }
+        session_set_cookie_params(
+            [
+                'secure' => 'production',
+                'httponly' => true,
+                'samesite' => 'lax'
+
+            ]
+        );
 
         session_start();
 

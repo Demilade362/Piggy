@@ -27,3 +27,8 @@ function redirect(string $path, int $statusCode = 302)
     http_response_code($statusCode);
     exit();
 }
+
+function env(string $value)
+{
+    return $_ENV[$value];
+}
