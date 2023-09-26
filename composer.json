@@ -8,7 +8,9 @@
             "email": "ademolademilade362@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
     "autoload": {
         "psr-4": {
             "Framework\\": "src/Framework",

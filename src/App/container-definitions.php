@@ -14,26 +14,15 @@ use Framework\TemplateEngine;
 return [
     TemplateEngine::class => fn () => new TemplateEngine(Paths::VIEW),
     ValidatorService::class => fn () => new ValidatorService(),
-    // Database::class => fn () => new Database(
-    //     env('DB_DRIVER'),
-    //     [
-    //         'host' => env('DB_HOST'),
-    //         'port' => env('DB_PORT'),
-    //         'dbname' => env('DB_NAME')
-    //     ],
-    //     env('DB_USERNAME'),
-    //     env('DB_PASSWORD')
-    // ),
-
     Database::class => fn () => new Database(
-        'mysql',
+        env("DB_DRIVER"),
         [
-            'host' => 'localhost',
-            'port' => 3306,
-            'dbname' => "piggy"
+            'host' => env("DB_HOST"),
+            'port' => env("DB_PORT"),
+            'dbname' => env("DB_NAME")
         ],
-        'root',
-        'password'
+        env('DB_USERNAME'),
+        env('DB_PASSWORD')
     ),
     UserService::class => function (Container $container) {
         $db = $container->get(Database::class);

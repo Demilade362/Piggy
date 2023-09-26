@@ -13,7 +13,7 @@ class SessionMiddleware implements MiddlewareInterface
     {
         session_set_cookie_params(
             [
-                'secure' => 'production',
+                'secure' => env('APP_ENV') === 'production',
                 'httponly' => true,
                 'samesite' => 'lax'
             ]
