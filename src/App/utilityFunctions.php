@@ -25,7 +25,7 @@ function redirect(string $path, int $statusCode = 302)
 {
     header("Location: {$path}");
     http_response_code($statusCode);
-    exit();
+    die();
 }
 
 function env(string $value)
