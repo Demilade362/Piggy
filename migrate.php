@@ -10,6 +10,6 @@ $db = new Database('mysql', [
     'dbname' => 'piggy'
 ], 'root', 'password');
 
-$sql = file_get_contents("./database.sql");
+$sql = file_get_contents("database.sql");
 
 $db->connection->query($sql);

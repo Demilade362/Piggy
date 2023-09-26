@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use Framework\Contracts\RuleInterface;
 use Framework\Rules\{
     EmailRule,
     InRule,
@@ -44,6 +43,14 @@ class ValidatorService
             'password' => ['required'],
             'confirmPassword' => ['required', 'match:password'],
             'tos' => ['required'],
+        ]);
+    }
+
+    public function validateLogin(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ]);
     }
 }

@@ -11,6 +11,15 @@ class SessionMiddleware implements MiddlewareInterface
 {
     public function process(callable $next)
     {
+        session_set_cookie_params(
+            [
+                'secure' => 'production',
+                'httponly' => true,
+                'samesite' => 'lax'
+            ]
+        );
+
+        // session_start();
 
         if (session_status() === PHP_SESSION_ACTIVE) {
             throw new SessionException("Session already active");
@@ -20,7 +29,6 @@ class SessionMiddleware implements MiddlewareInterface
             throw new SessionException("Sessions already sent. Consider Enabling output buffering. Data outputted from {$filename} - Line: {$line}");
         }
 
-        session_start();
 
         $next();
 
