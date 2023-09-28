@@ -16,11 +16,11 @@ class MaxRule implements RuleInterface
         }
 
         $length = (int) $params[0];
-        return $data[$field] <= $length;
+        return strlen($data[$field]) < $length;
     }
 
     public function getMessage(array $data, string $field, array $params): string
     {
-        return "Must be less than {$params[0]}";
+        return "Exceeds Maximum Character Limit of {$params[0]} Characters";
     }
 }

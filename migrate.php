@@ -10,6 +10,5 @@ $db = new Database('mysql', [
     'dbname' => 'piggy'
 ], 'root', 'password');
 
-$sql = file_get_contents("database.sql");
-
-$db->connection->query($sql);
+$sql = file_get_contents("./database.sql");
+$db->connection->query($sql) ? "Migrated Successfully" : "Error Found during migration";

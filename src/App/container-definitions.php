@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use App\config\Paths;
 use App\Services\{
+    TransactionService,
     UserService,
-    ValidatorService
+    ValidatorService,
+    ReceiptService
 };
 use Framework\Container;
 use Framework\Database;
@@ -28,5 +30,15 @@ return [
         $db = $container->get(Database::class);
 
         return new UserService($db);
-    }
+    },
+    TransactionService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+
+        return new TransactionService($db);
+    },
+    ReceiptService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+
+        return new ReceiptService($db);
+    },
 ];

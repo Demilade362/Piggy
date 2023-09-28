@@ -14,10 +14,10 @@
 
 @font-face {
     font-family: Outfit;
-    src: url(Outfit-Regular.ttf);
+    src: url(./Outfit-Regular.ttf);
 }
 
-html {
+*/ html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -moz-tab-size: 4;

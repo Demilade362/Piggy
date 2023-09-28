@@ -26,7 +26,7 @@ class Database
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]);
         } catch (PDOException $e) {
-            exit("Couldn't Connect to the database");
+            exit("Couldn't Connect to the database\n");
         }
     }
 
@@ -51,5 +51,10 @@ class Database
     public function id()
     {
         return $this->connection->lastInsertId();
+    }
+
+    public function findAll()
+    {
+        return $this->stmt->fetchAll();
     }
 }

@@ -19,11 +19,13 @@ class SessionMiddleware implements MiddlewareInterface
             ]
         );
 
-        // session_start();
-
         if (session_status() === PHP_SESSION_ACTIVE) {
             throw new SessionException("Session already active");
         }
+
+
+        session_start();
+
 
         if (headers_sent($filename, $line)) {
             throw new SessionException("Sessions already sent. Consider Enabling output buffering. Data outputted from {$filename} - Line: {$line}");
