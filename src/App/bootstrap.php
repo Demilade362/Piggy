@@ -8,6 +8,7 @@ use Framework\App;
 use Dotenv\Dotenv;
 use App\config\Paths;
 
+
 use function App\config\registerMiddleware;
 use function App\Routes\registerRoutes;
 
