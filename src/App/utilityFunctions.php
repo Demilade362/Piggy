@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Framework\Http;
+
 function dd(mixed $value): mixed
 {
     echo "<pre>";
@@ -21,10 +23,10 @@ function abort(string $message, int $status)
 }
 
 
-function redirect(string $path, int $statusCode = 302)
+function redirect(string $path)
 {
     header("Location: {$path}");
-    http_response_code($statusCode);
+    http_response_code(Http::REDIRECT_STATUS_CODE);
     die();
 }
 

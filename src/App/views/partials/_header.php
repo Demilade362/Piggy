@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="/assets/main.css" />
 </head>
 
-<body class=" bg-indigo-50 font-['Outfit']">
+<body class=" bg-blue-50 font-['Outfit']">
     <!-- Start Header -->
-    <header class="bg-indigo-900">
+    <header class="bg-blue-900">
         <nav class="mx-auto flex container items-center justify-between py-4" aria-label="Global">
             <a href="/" class="-m-1.5 p-1.5 text-white text-2xl font-bold">Piggy</a>
             <!-- Navigation Links -->

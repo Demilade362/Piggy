@@ -16,7 +16,7 @@
         <?php if (array_key_exists('password', $errors)) : ?>
             <p class="bg-gray-100 mt-2 p-2 text-red-500"><?php echo $errors['password'][0] ?></p>
         <?php endif; ?>
-        <button type="submit" class="block w-full py-2 bg-indigo-600 text-white rounded">
+        <button type="submit" class="block w-full py-2 bg-blue-600 text-white rounded">
             Submit
         </button>
     </form>
